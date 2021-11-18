@@ -43,8 +43,6 @@ app.get('/', (req, res) => {
 // define post route
 app.post('/', (req, res) => {
   const options = req.body
-  console.log('random password is: ', getPassword(options))
-
   const password = getPassword(options)
   res.render('index', { password, options })
 })

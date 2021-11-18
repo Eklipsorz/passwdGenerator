@@ -10,6 +10,10 @@ function sample(array) {
 
 // define generatePassword function
 function generatePassword(options) {
+
+
+
+
   // define things user might want
   const lowerCaseLetters = 'abcdefghijklmnopqrstuvwxyz'
   const upperCaseLetters = lowerCaseLetters.toUpperCase()
@@ -45,7 +49,10 @@ function generatePassword(options) {
 
   }
 
-  console.log(collection)
+  if (collection.length === 0) {
+    return 'You must select at least one character set'
+  }
+
   // start generating password
   let password = ''
 
