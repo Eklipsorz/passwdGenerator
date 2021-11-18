@@ -1,6 +1,7 @@
 // load express and express-handlebars
 const express = require('express')
 const handlebarsModule = require('express-handlebars')
+const getPassword = require('./getPassword')
 
 // create a app object
 
@@ -41,8 +42,10 @@ app.get('/', (req, res) => {
 
 // define post route
 app.post('/', (req, res) => {
-  console.log('post', req.body)
-  res.render('index')
+  console.log('random password is: ', getPassword(req.body))
+
+  const password = getPassword(req.body)
+  res.render('index', { password: password })
 })
 
 // start to listen
