@@ -26,15 +26,24 @@ app.set('view engine', 'handlebars')
 // views directory
 app.set('views', process.cwd() + '/views')
 
+
 // static file directory
 app.use('/', express.static('public'))
 
 
-// define route
+// set body parser for url encoded
+app.use('/', express.urlencoded({ extended: true }))
+
+// define get route
 app.get('/', (req, res) => {
   res.render('index')
 })
 
+// define post route
+app.post('/', (req, res) => {
+  console.log('post', req.body)
+  res.render('index')
+})
 
 // start to listen
 
