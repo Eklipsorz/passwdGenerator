@@ -1,5 +1,13 @@
 // getPassword.js
 
+// define sample function to randomly return a item in an array
+function sample(array) {
+  const index = Math.floor(Math.random() * array.length)
+  return array[index]
+}
+
+
+
 // define generatePassword function
 function generatePassword() {
   // define things user might want
@@ -40,9 +48,22 @@ function generatePassword() {
   console.log(collection)
   // remove things user do not need
 
+  if (options.excludeCharacters) {
+    collection = collection.filter(character =>
+      !options.excludeCharacters.includes(character)
+    )
 
+
+  }
+
+  console.log(collection)
   // start generating password
+  let password = ''
 
+  for (let index = 0; index < options.length; index++) {
+    password += sample(collection)
+  }
+  console.log(password)
 
   // return the generated password
   console.log('This function will generate password')
