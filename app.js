@@ -42,10 +42,11 @@ app.get('/', (req, res) => {
 
 // define post route
 app.post('/', (req, res) => {
-  console.log('random password is: ', getPassword(req.body))
+  const options = req.body
+  console.log('random password is: ', getPassword(options))
 
-  const password = getPassword(req.body)
-  res.render('index', { password: password })
+  const password = getPassword(options)
+  res.render('index', { password, options })
 })
 
 // start to listen
